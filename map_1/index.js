@@ -80,16 +80,8 @@ function drawPaths(points){
         .style("stroke-width",.4)
     
     blink()
-    //transition(points);
-//    function transition(points) {
-//        console.log(points)
-//       g.transition()
-//           .duration(100000)
-//            .delay(1000)
-//           .attrTween("transform", translateAlong(path.node()))
-//           .each("end", transition);// infinite loop
-//     }
-var timeScale = d3.scale.linear().domain([0,60*60*2]).range([100,1000])
+
+var timeScale = d3.scale.linear().domain([0,60*60*2]).range([0,1000])
 var cScale = d3.scale.linear().domain([0,24*60*6]).range(["#fff","red"])
 
      var segment = 0
@@ -135,7 +127,7 @@ function rgbToHex(r, g, b) {
                 
                     d3.select("#time").html(points[segment].t)
                  
-                console.log(oldOpacity) 
+              //  console.log(oldOpacity) 
                  d3.select("._"+geoId)
                  .transition()
                  //.duration(100)
@@ -160,11 +152,11 @@ function rgbToHex(r, g, b) {
      }
      
      function blink(){
-         marker.style("r",10).style("opacity",.7).style("stroke-width",2)
-         .transition().style("stroke","red").style("opacity",0.3)
-         .duration(400).style("r",9)
+         marker.style("r",8).style("opacity",.7).style("stroke-width",2)
+         .transition().style("stroke","red").style("opacity",0.5)
+         .duration(200).style("r",6.5)
          .transition()
-         .duration(600).style("opacity",.7).style("r",10)
+         .duration(300).style("opacity",.7).style("r",8)
          .each("end", blink);
      }
      
